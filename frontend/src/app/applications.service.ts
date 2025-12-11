@@ -12,6 +12,11 @@ export class ApplicationService {
   addApplication(application: CreateJobApplication): Observable<CreateJobApplication> {
   return this.http.post<CreateJobApplication>('http://localhost:5271/applications', application)
    }
+
+   deleteApplication(id: number): Observable<JobApplication> {
+    console.log(id);
+     return this.http.delete<JobApplication>(`http://localhost:5271/applications/${id}`);
+   }
 }
 
 

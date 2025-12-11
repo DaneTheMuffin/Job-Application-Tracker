@@ -1,5 +1,4 @@
 <p>Current Applications</p>
-<button>Edit Applications</button>
 <table>
   <thead>
   <tr>
@@ -8,16 +7,20 @@
     <th>Position Title</th>
     <th>Application Status</th>
     <th>Time Applied</th>
+    <th></th>
+    <th></th>
   </tr>
   </thead>
-  <tbody>
+  <tbody >
     @for (application of applications; track application.id) {
       <tr>
-
+<td>{{application.id}}</td>
         <td>{{ application.companyName }}</td>
         <td>{{ application.position }}</td>
         <td>{{ application.status }}</td>
         <td>{{ application.timeApplied }}</td>
+        <td><button (click)="deleteApplication(application.id)">🗑</button>️</td>
+        <td><button>✏️</button></td>
       </tr>
     }
   </tbody>

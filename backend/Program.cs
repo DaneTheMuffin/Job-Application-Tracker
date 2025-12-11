@@ -39,6 +39,9 @@ if (app.Environment.IsDevelopment())
 // List all applications.
 app.MapGet("/applications", (JobApplicationDb db) => db.JobApplications.ToListAsync());
 
+// List specific application.
+app.MapGet("/applications/{id}", (int id, JobApplicationDb db) => db.JobApplications.FindAsync(id));
+
 // Create a new application.
 app.MapPost("/applications", (JobApplication application, JobApplicationDb db) =>
 {
@@ -46,6 +49,21 @@ app.MapPost("/applications", (JobApplication application, JobApplicationDb db) =
     db.SaveChanges();
     return Results.Created($"/applications/{application.Id}", application);
 });
+
+// Delete an application
+app.MapDelete("/applications/{id}", async (int id, JobApplicationDb db) =>
+{
+    
+    if (await db.JobApplications.FindAsync(id) is JobApplication application)
+    {
+        db.JobApplications.Remove(application);
+        await db.SaveChangesAsync();
+        return Results.NoContent();
+    }
+
+    return Results.NotFound();
+});
+    
 
 
 

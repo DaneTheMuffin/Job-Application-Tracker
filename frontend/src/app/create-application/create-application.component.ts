@@ -21,7 +21,6 @@ export class CreateApplicationComponent {
 constructor(private applicationService: ApplicationService) {
 
 
-
   this.companyName = "";
   this.positionTitle = "";
   this.timeApplied = "";
