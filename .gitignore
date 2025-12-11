@@ -4,8 +4,11 @@ obj/
 *.user
 *.suo
 *.vs/
-*.vscode/
 
 # Angular / Node
 node_modules/
 dist/
+.angular/
+
+# IDEs
+.vscode/

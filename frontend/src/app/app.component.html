@@ -1,0 +1,12 @@
+<h1>Welcome To Your Application Tracker!</h1>
+<button (click)="toggleApplications()">Add New Application</button>
+<app-view-applications
+  *ngIf="showApplications" (toggle)="toggleApplications()"
+></app-view-applications>
+<app-create-application
+  *ngIf="!showApplications" (toggle)="toggleApplications()"
+></app-create-application>
+
+
+
+

@@ -1,0 +1,82 @@
+/* Ukrainian-themed table styles with blue and yellow accents */
+
+p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #0057b7; /* Ukrainian blue */
+  margin-bottom: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+th {
+  background: linear-gradient(135deg, #0057b7 0%, #004494 100%); /* Ukrainian blue gradient */
+  color: #ffffff;
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 3px solid #ffd700; /* Ukrainian yellow accent */
+}
+
+td {
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover {
+  background-color: #fff4d6; /* Light yellow hover */
+  transition: background-color 0.2s ease;
+}
+
+/* Zebra striping with subtle yellow tint */
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:nth-child(even):hover {
+  background-color: #fff4d6;
+}
+
+/* Add some responsive design */
+@media (max-width: 768px) {
+  table {
+    font-size: 0.85rem;
+  }
+
+  th, td {
+    padding: 0.75rem;
+  }
+
+  p {
+    font-size: 1.25rem;
+  }
+}
+
+/* Optional: Style for the first column (ID) */
+td:first-child {
+  font-weight: 600;
+  color: #0057b7;
+}
+
+/* Optional: Add a subtle border to the entire table */
+table {
+  border: 2px solid #0057b7;
+}

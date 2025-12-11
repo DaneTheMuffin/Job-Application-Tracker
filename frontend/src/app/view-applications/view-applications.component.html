@@ -1,0 +1,24 @@
+<p>Current Applications</p>
+<button>Edit Applications</button>
+<table>
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Company Name</th>
+    <th>Position Title</th>
+    <th>Application Status</th>
+    <th>Time Applied</th>
+  </tr>
+  </thead>
+  <tbody>
+    @for (application of applications; track application.id) {
+      <tr>
+
+        <td>{{ application.companyName }}</td>
+        <td>{{ application.position }}</td>
+        <td>{{ application.status }}</td>
+        <td>{{ application.timeApplied }}</td>
+      </tr>
+    }
+  </tbody>
+</table>

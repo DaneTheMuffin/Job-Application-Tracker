@@ -1,0 +1,15 @@
+<h1>Create An Application!</h1>
+
+<form>
+  <label>Company Name:</label>
+  <input type="text" [(ngModel)]="companyName" name="companyName" placeholder="Company Name">
+  <br>
+  <label>Position Title:</label>
+  <input type="text" [(ngModel)]="positionTitle" name="positionTitle" placeholder="Position Title">
+  <label>Application Status:</label>
+  <input type="text" [(ngModel)]="applicationStatus" name="applicationStatus" placeholder="Application Status">
+  <label>Date Applied:</label>
+  <input type="date" [(ngModel)]="timeApplied" name="timeApplied" placeholder="Date Applied">
+</form>
+
+<button (click)="submitApplication()">Submit Application</button>
