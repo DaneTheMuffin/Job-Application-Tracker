@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {ApplicationService, CreateJobApplication, JobApplication} from '../applications.service';
 import {FormsModule} from '@angular/forms';
+import {SharedService} from '../shared.service';
 
 @Component({
   selector: 'app-create-application',
   imports: [
     FormsModule
+
   ],
   templateUrl: './create-application.component.html',
   styleUrl: './create-application.component.css'
@@ -18,7 +20,8 @@ export class CreateApplicationComponent {
   protected applicationStatus: string;
 
 
-constructor(private applicationService: ApplicationService) {
+
+constructor(private applicationService: ApplicationService, private sharedService: SharedService) {
 
 
   this.companyName = "";
@@ -36,8 +39,9 @@ submitApplication(){
     status: this.applicationStatus,
     timeApplied: this.timeApplied
   };
-
   this.applicationService.addApplication(application).subscribe();
+this.sharedService.toggleApplications();
+
 
 
 }

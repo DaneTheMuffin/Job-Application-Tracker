@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {ApplicationService} from './applications.service';
 import {CreateApplicationComponent} from './create-application/create-application.component';
 import {ViewApplicationsComponent} from './view-applications/view-applications.component';
+import {SharedService} from './shared.service';
 
 @Component({
   selector: 'app-root',
@@ -14,17 +15,24 @@ import {ViewApplicationsComponent} from './view-applications/view-applications.c
 
 export class AppComponent {
 
-  showApplications = true;
 
 
-  constructor(private applicationService: ApplicationService) {
 
-
+  constructor(private sharedService: SharedService) {
 
   }
 
+  get showViewApplications(): boolean {
+    return this.sharedService.showApplications;
+  }
+
+  get topButtonText(): string {
+    return this.sharedService.topButtonText;
+  }
+
   toggleApplications() {
-    this.showApplications = !this.showApplications;
+    this.sharedService.toggleApplications();
+
   }
 
 
