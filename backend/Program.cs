@@ -63,7 +63,25 @@ app.MapDelete("/applications/{id}", async (int id, JobApplicationDb db) =>
 
     return Results.NotFound();
 });
-    
+ 
+// Update an existing application
+app.MapPut("/applications/{id}", async (int id, JobApplication updated, JobApplicationDb db) =>
+{
+    var existing = await db.JobApplications.FindAsync(id);
+    if (existing is null)
+    {
+        return Results.NotFound();
+    }
+
+    // Update fields from payload (ignore payload Id)
+    existing.CompanyName = updated.CompanyName;
+    existing.Position = updated.Position;
+    existing.Status = updated.Status;
+    existing.TimeApplied = updated.TimeApplied;
+
+    await db.SaveChangesAsync();
+    return Results.NoContent();
+});
 
 
 

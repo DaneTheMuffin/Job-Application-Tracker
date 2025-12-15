@@ -20,7 +20,7 @@
         <td>{{ application.status }}</td>
         <td>{{ application.timeApplied }}</td>
         <td><button (click)="deleteApplication(application.id)">🗑</button>️</td>
-        <td><button>✏️</button></td>
+        <td><button (click)="editApplication(application)">✏️</button></td>
       </tr>
     }
   </tbody>

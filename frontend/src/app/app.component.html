@@ -1,11 +1,15 @@
 <h1>Welcome To Your Application Tracker!</h1>
-<button (click)="toggleApplications()">{{topButtonText}}</button>
+<button (click)="handleTopButton()">{{topButtonText}}</button>
 <app-view-applications
-  *ngIf="showViewApplications" (toggle)="toggleApplications()"
+  *ngIf="getViewState() === 1"
 ></app-view-applications>
 <app-create-application
-  *ngIf="!showViewApplications" (toggle)="toggleApplications()"
+  *ngIf="getViewState() === 2"
 ></app-create-application>
+<app-edit-application
+  *ngIf="getViewState() === 3"
+  [application]="sharedService.selectedApplication"
+></app-edit-application>
 
 
 

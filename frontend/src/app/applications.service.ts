@@ -17,6 +17,13 @@ export class ApplicationService {
     console.log(id);
      return this.http.delete<JobApplication>(`http://localhost:5271/applications/${id}`);
    }
+
+  updateApplication(id: number, application: CreateJobApplication): Observable<JobApplication> {
+   return this.http.put<JobApplication>(`http://localhost:5271/applications/${id}`, application);
+  }
+
+   editSpecificApplication(id: number, application: CreateJobApplication): Observable<JobApplication> {
+    return this.http.put<JobApplication>(`http://localhost:5271/applications/${id}`, application);}
 }
 
 

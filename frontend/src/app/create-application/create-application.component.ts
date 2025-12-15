@@ -4,13 +4,14 @@ import {FormsModule} from '@angular/forms';
 import {SharedService} from '../shared.service';
 
 @Component({
+  standalone: true,
   selector: 'app-create-application',
   imports: [
     FormsModule
 
   ],
   templateUrl: './create-application.component.html',
-  styleUrl: './create-application.component.css'
+  styleUrls: ['./create-application.component.css']
 })
 export class CreateApplicationComponent {
 
@@ -39,8 +40,18 @@ submitApplication(){
     status: this.applicationStatus,
     timeApplied: this.timeApplied
   };
-  this.applicationService.addApplication(application).subscribe();
-this.sharedService.toggleApplications();
+  this.applicationService.addApplication(application).subscribe({
+    next: () => {
+      this.sharedService.toggleApplications(1);
+      this.companyName = '';
+      this.positionTitle = '';
+      this.timeApplied = '';
+      this.applicationStatus = '';
+    },
+    error: (err) => {
+      console.error('Add application failed', err);
+    }
+  });
 
 
 
