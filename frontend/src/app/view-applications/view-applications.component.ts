@@ -21,10 +21,14 @@ updateApplication() {
 }
 
 deleteApplication(id: number) {
-  console.log("calling delete");
-  this.applicationService.deleteApplication(id).subscribe();
-
-  this.updateApplication();
+  this.applicationService.deleteApplication(id).subscribe({
+    next: () => {
+      this.updateApplication();
+    },
+    error: (err) => {
+      console.error('Delete failed', err);
+    }
+  });
 
 }
 
